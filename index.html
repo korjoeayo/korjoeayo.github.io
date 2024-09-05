@@ -56,14 +56,6 @@
             <td><input type="number"></td>
         </tr>
         <tr>
-            <td>5X</td>
-            <td colspan="2"><input type="number" id="arow2_col2"></td>
-        </tr>
-        <tr>
-            <td>1X</td>
-            <td colspan="2"><input type="number" id="arow3_col2"></td>
-        </tr>
-        <tr>
             <td>+</td>
             <td><input type="number" id="arow4_col2" oninput="calculate()"></td>
             <td><input type="text" id="arow4_col3" readonly></td>
@@ -78,14 +70,6 @@
             <td>892</td>
             <td><input type="number" id="brow1_col2" oninput="calculate()"></td>
             <td><input type="number"></td>
-        </tr>
-        <tr>
-            <td>5X</td>
-            <td colspan="2"><input type="number" id="brow2_col2"></td>
-        </tr>
-        <tr>
-            <td>1X</td>
-            <td colspan="2"><input type="number" id="brow3_col2"></td>
         </tr>
         <tr>
             <td>+</td>
@@ -120,6 +104,10 @@
             <td>-</td>
             <td><input type="number" id="crow5_col2" oninput="calculate()"></td>
             <td><input type="text" id="crow5_col3" readonly></td>
+        </tr>
+        <tr>
+            <td>총액</td>
+            <td colspan="2"><input type="number" id="all"></td>
         </tr>
     </tbody>
 </table>
@@ -164,6 +152,9 @@ function calculate() {
     // 네 번째 줄 - 다섯 번째 줄 계산
     const cresult4Col3 = crow4Col2 - crow5Col2;
     document.getElementById('crow4_col3').value = cresult4Col3;
+
+    const resultall = arow1Col2 + brow1Col2 + crow1Col2
+    document.getElementById('all').value = resultall;
 }
 </script>
 
