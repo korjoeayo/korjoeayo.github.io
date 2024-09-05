@@ -160,6 +160,11 @@ function calculate() {
     // 네 번째 줄 - 다섯 번째 줄 계산
     const cresult4Col3 = crow4Col2 - crow5Col2;
     document.getElementById('crow4_col3').value = cresult4Col3;
+	
+    // 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
+    const a891 = parseFloat(document.getElementById('a891').value) || 0;
+    const a892 = parseFloat(document.getElementById('a892').value) || 0;
+    const a893 = parseFloat(document.getElementById('a893').value) || 0;
 
     const result891 = aresult5Col3 - a891;
     document.getElementById('b891').value = result891;
