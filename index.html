@@ -1,23 +1,171 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시재계산기</title>
+    <style>
+		html {
+			height:100%;
+		}
+		body {
+			margin:0;
+			overscroll-behavior: none;
+		}
+		table {
+			width: 100vw; /* 너비를 화면 전체로 설정 */
+			height: 100vh; /* 높이를 화면 전체로 설정 */
+			border-collapse: collapse;
+		}
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+        }
+        /* 각 5줄마다 두꺼운 선 */
+        tr:nth-child(5n) td {
+            border-bottom: 3px solid black;
+        }
+        tr:nth-child(5n+1) td {
+            border-top: 3px solid black;
+        }
+        td:nth-child(2), td:nth-child(3) {
+            width: 40%; /* 데이터 입력 칸 넓게 설정 */
+        }
+        input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+        }
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
 
+<table>
+    <tbody>
+        <!-- 첫 번째 줄 -->
+        <tr>
             <td>891</td>
-            <td><input type="number" id="row1_col2" oninput="calculate()"></td>
+            <td><input type="number" id="arow1_col2" oninput="calculate()"></td>
             <td><input type="number"></td>
         </tr>
         <tr>
             <td>5X</td>
-            <td colspan="2"><input type="number" id="row2_col2"></td>
+            <td colspan="2"><input type="number" id="arow2_col2"></td>
         </tr>
         <tr>
             <td>1X</td>
-            <td colspan="2"><input type="number" id="row3_col2"></td>
+            <td colspan="2"><input type="number" id="arow3_col2"></td>
         </tr>
         <tr>
             <td>+</td>
-            <td><input type="number" id="row4_col2" oninput="calculate()"></td>
-            <td><input type="text" id="row4_col3" readonly></td>
+            <td><input type="number" id="arow4_col2" oninput="calculate()"></td>
+            <td><input type="text" id="arow4_col3" readonly></td>
         </tr>
         <tr>
             <td>-</td>
-            <td><input type="number" id="row5_col2" oninput="calculate()"></td>
-            <td><input type="text" id="row5_col3" readonly></td>
+            <td><input type="number" id="arow5_col2" oninput="calculate()"></td>
+            <td><input type="text" id="arow5_col3" readonly></td>
         </tr>
+        <!-- 두 번째 줄 (계속 진행) -->
+        <tr>
+            <td>892</td>
+            <td><input type="number" id="brow1_col2" oninput="calculate()"></td>
+            <td><input type="number"></td>
+        </tr>
+        <tr>
+            <td>5X</td>
+            <td colspan="2"><input type="number" id="brow2_col2"></td>
+        </tr>
+        <tr>
+            <td>1X</td>
+            <td colspan="2"><input type="number" id="brow3_col2"></td>
+        </tr>
+        <tr>
+            <td>+</td>
+            <td><input type="number" id="brow4_col2" oninput="calculate()"></td>
+            <td><input type="text" id="brow4_col3" readonly></td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td><input type="number" id="brow5_col2" oninput="calculate()"></td>
+            <td><input type="text" id="brow5_col3" readonly></td>
+        </tr>
+        <!-- 세 번째 줄 (계속 진행) -->
+        <tr>
+            <td>891</td>
+            <td><input type="number" id="crow1_col2" oninput="calculate()"></td>
+            <td><input type="number"></td>
+        </tr>
+        <tr>
+            <td>5X</td>
+            <td colspan="2"><input type="number" id="crow2_col2"></td>
+        </tr>
+        <tr>
+            <td>1X</td>
+            <td colspan="2"><input type="number" id="crow3_col2"></td>
+        </tr>
+        <tr>
+            <td>+</td>
+            <td><input type="number" id="crow4_col2" oninput="calculate()"></td>
+            <td><input type="text" id="crow4_col3" readonly></td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td><input type="number" id="crow5_col2" oninput="calculate()"></td>
+            <td><input type="text" id="crow5_col3" readonly></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+function calculate() {
+    // 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
+    const arow1Col2 = parseFloat(document.getElementById('arow1_col2').value) || 0;
+    const arow4Col2 = parseFloat(document.getElementById('arow4_col2').value) || 0;
+    const arow5Col2 = parseFloat(document.getElementById('arow5_col2').value) || 0;
+
+    // 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
+    const aresult5Col3 = arow1Col2 + arow4Col2 - arow5Col2;
+    document.getElementById('arow5_col3').value = aresult5Col3;
+
+    // 네 번째 줄 - 다섯 번째 줄 계산
+    const aresult4Col3 = arow4Col2 - arow5Col2;
+    document.getElementById('arow4_col3').value = aresult4Col3;
+	
+    // 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
+    const brow1Col2 = parseFloat(document.getElementById('brow1_col2').value) || 0;
+    const brow4Col2 = parseFloat(document.getElementById('brow4_col2').value) || 0;
+    const brow5Col2 = parseFloat(document.getElementById('brow5_col2').value) || 0;
+
+    // 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
+    const bresult5Col3 = brow1Col2 + brow4Col2 - brow5Col2;
+    document.getElementById('brow5_col3').value = bresult5Col3;
+
+    // 네 번째 줄 - 다섯 번째 줄 계산
+    const bresult4Col3 = brow4Col2 - brow5Col2;
+    document.getElementById('brow4_col3').value = bresult4Col3;
+	
+    // 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
+    const crow1Col2 = parseFloat(document.getElementById('crow1_col2').value) || 0;
+    const crow4Col2 = parseFloat(document.getElementById('crow4_col2').value) || 0;
+    const crow5Col2 = parseFloat(document.getElementById('crow5_col2').value) || 0;
+
+    // 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
+    const cresult5Col3 = crow1Col2 + crow4Col2 - crow5Col2;
+    document.getElementById('crow5_col3').value = cresult5Col3;
+
+    // 네 번째 줄 - 다섯 번째 줄 계산
+    const cresult4Col3 = crow4Col2 - crow5Col2;
+    document.getElementById('crow4_col3').value = cresult4Col3;
+}
+</script>
+
+</body>
+</html>
