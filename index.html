@@ -24,10 +24,10 @@
             font-size: 20px;
         }
         /* 각 5줄마다 두꺼운 선 */
-        tr:nth-child(5n) td {
+        tr:nth-child(3n) td {
             border-bottom: 3px solid black;
         }
-        tr:nth-child(5n+1) td {
+        tr:nth-child(3n+1) td {
             border-top: 3px solid black;
         }
         td:nth-child(2), td:nth-child(3) {
@@ -86,14 +86,6 @@
             <td>893</td>
             <td><input type="number" id="crow1_col2" oninput="calculate()"></td>
             <td><input type="number"></td>
-        </tr>
-        <tr>
-            <td>5X</td>
-            <td colspan="2"><input type="number" id="crow2_col2"></td>
-        </tr>
-        <tr>
-            <td>1X</td>
-            <td colspan="2"><input type="number" id="crow3_col2"></td>
         </tr>
         <tr>
             <td>+</td>
