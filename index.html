@@ -11,14 +11,16 @@
             box-sizing: border-box;
         }
 		html, body {
-			height: 100vh; /* 화면 높이를 100vh로 변경 */
+			height: 100vh; /* 화면 높이를 100vh로 유지 */
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			overflow: hidden; /* 스크롤을 막음 */
 		}
-
 		table {
-			height: 100%; /* 테이블 높이를 100%로 설정 */
+			width: 100vw; /* 너비를 화면 전체로 설정 */
+			height: 100vh; /* 높이를 화면 전체로 설정 */
+			border-collapse: collapse;
 		}
         th, td {
             border: 1px solid black;
