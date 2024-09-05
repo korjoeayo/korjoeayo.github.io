@@ -5,17 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table Layout</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-		html, body {
-			height: 100vh; /* 화면 높이를 100vh로 유지 */
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			overflow: hidden; /* 스크롤을 막음 */
+		html {
+			height:100%;
+		}
+		body {
+			margin:0;
+			overscroll-behavior: none;
 		}
 		table {
 			width: 100vw; /* 너비를 화면 전체로 설정 */
