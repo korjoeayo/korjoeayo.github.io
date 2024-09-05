@@ -34,8 +34,8 @@
             width: 40%; /* 데이터 입력 칸 넓게 설정 */
         }
         input {
-            width: 100%;
-            height: 100%;
+            width: 99%;
+            height: 99%;
             border: none;
             padding: 10px;
             font-size: 18px;
@@ -162,17 +162,17 @@ function calculate() {
     document.getElementById('crow4_col3').value = cresult4Col3;
 	
     // 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
-    const a891 = parseFloat(document.getElementById('a891').value) || 0;
-    const a892 = parseFloat(document.getElementById('a892').value) || 0;
-    const a893 = parseFloat(document.getElementById('a893').value) || 0;
+    const a8911 = parseFloat(document.getElementById('a891').value) || 0;
+    const a8921 = parseFloat(document.getElementById('a892').value) || 0;
+    const a8931 = parseFloat(document.getElementById('a893').value) || 0;
 
-    const result891 = aresult5Col3 - a891;
+    const result891 = aresult5Col3 - a8911;
     document.getElementById('b891').value = result891;
 
-    const result892 = bresult5Col3 - a892;
+    const result892 = bresult5Col3 - a8921;
     document.getElementById('b892').value = result892;
 
-    const result893 = cresult5Col3 - a893;
+    const result893 = cresult5Col3 - a8931;
     document.getElementById('b893').value = result893;
 
     const resultall = aresult5Col3 + bresult5Col3 + cresult5Col3;
