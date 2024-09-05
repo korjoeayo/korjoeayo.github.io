@@ -100,17 +100,17 @@
         <tr>
             <td>891</td>
             <td><input type="number" id="a891" oninput="calculate()"></td>
-            <td><input type="number" id="b891" readonly></td>
+            <td><input type="text" id="b891" readonly></td>
         </tr>
         <tr>
             <td>892</td>
             <td><input type="number" id="a892" oninput="calculate()"></td>
-            <td><input type="number" id="b892" readonly></td>
+            <td><input type="text" id="b892" readonly></td>
         </tr>
         <tr>
             <td>893</td>
             <td><input type="number" id="a892" oninput="calculate()"></td>
-            <td><input type="number" id="b892" readonly></td>
+            <td><input type="text" id="b892" readonly></td>
         </tr>
         <tr>
             <td>총액</td>
@@ -161,20 +161,20 @@ function calculate() {
     const cresult4Col3 = crow4Col2 - crow5Col2;
     document.getElementById('crow4_col3').value = cresult4Col3;
 
-    const resultall = arow1Col2 + brow1Col2 + crow1Col2
+    const resultall = aresult5Col3 + bresult5Col3 + cresult5Col3
     document.getElementById('all').value = resultall;
 
     const resultall1 = b891 + b892 + b893
     document.getElementById('all1').value = resultall1;
 
     const result891 = aresult5Col3 - a891
-    document.getElementById('result891').value = b891;
+    document.getElementById('b891').value = result891;
 
     const result892 = bresult5Col3 - a892
-    document.getElementById('result892').value = b892;
+    document.getElementById('b892').value = result892;
 
     const result893 = cresult5Col3 - a893
-    document.getElementById('result893').value = b893;
+    document.getElementById('b893').value = result893;
 
 
 }
