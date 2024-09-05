@@ -58,77 +58,94 @@
         <!-- 첫 번째 줄 -->
         <tr>
             <td>891</td>
-            <td><input type="text" placeholder="Enter data"></td>
-            <td><input type="text" placeholder="Enter data"></td>
+            <td><input type="number" id="row1_col2" oninput="calculate()"></td>
+            <td><input type="text" readonly></td>
         </tr>
         <tr>
             <td>5X</td>
-            <td colspan="2"><input type="text" placeholder="Enter data"></td>
+            <td colspan="2"><input type="number" id="row2_col2"></td>
         </tr>
         <tr>
             <td>1X</td>
-            <td colspan="2"><input type="text" placeholder="Enter data"></td>
+            <td colspan="2"><input type="number" id="row3_col2"></td>
         </tr>
         <tr>
             <td>+</td>
-            <td><input type="text" placeholder="Enter data"></td>
-            <td><input type="text" placeholder="Enter data"></td>
+            <td><input type="number" id="row4_col2" oninput="calculate()"></td>
+            <td><input type="text" id="row4_col3" readonly></td>
         </tr>
         <tr>
             <td>-</td>
-            <td><input type="text" placeholder="Enter data"></td>
-            <td><input type="text" placeholder="Enter data"></td>
+            <td><input type="number" id="row5_col2" oninput="calculate()"></td>
+            <td><input type="text" id="row5_col3" readonly></td>
         </tr>
-        <!-- 두 번째 줄 (5번째 줄 이후 두꺼운 선 포함) -->
+        <!-- 두 번째 줄 (계속 진행) -->
         <tr>
             <td>892</td>
-            <td><input type="text" placeholder="Enter data"></td>
-            <td><input type="text" placeholder="Enter data"></td>
+            <td><input type="number"></td>
+            <td><input type="text" readonly></td>
         </tr>
         <tr>
             <td>5X</td>
-            <td colspan="2"><input type="text" placeholder="Enter data"></td>
+            <td colspan="2"><input type="number"></td>
         </tr>
         <tr>
             <td>1X</td>
-            <td colspan="2"><input type="text" placeholder="Enter data"></td>
+            <td colspan="2"><input type="number"></td>
         </tr>
         <tr>
             <td>+</td>
-            <td><input type="text" placeholder="Enter data"></td>
-            <td><input type="text" placeholder="Enter data"></td>
+            <td><input type="number"></td>
+            <td><input type="text" readonly></td>
         </tr>
         <tr>
             <td>-</td>
-            <td><input type="text" placeholder="Enter data"></td>
-            <td><input type="text" placeholder="Enter data"></td>
+            <td><input type="number"></td>
+            <td><input type="text" readonly></td>
         </tr>
-        <!-- 세 번째 줄 (다시 두꺼운 선 포함) -->
+        <!-- 세 번째 줄 (계속 진행) -->
         <tr>
             <td>893</td>
-            <td><input type="text" placeholder="Enter data"></td>
-            <td><input type="text" placeholder="Enter data"></td>
+            <td><input type="number"></td>
+            <td><input type="text" readonly></td>
         </tr>
         <tr>
             <td>5X</td>
-            <td colspan="2"><input type="text" placeholder="Enter data"></td>
+            <td colspan="2"><input type="number"></td>
         </tr>
         <tr>
             <td>1X</td>
-            <td colspan="2"><input type="text" placeholder="Enter data"></td>
+            <td colspan="2"><input type="number"></td>
         </tr>
         <tr>
             <td>+</td>
-            <td><input type="text" placeholder="Enter data"></td>
-            <td><input type="text" placeholder="Enter data"></td>
+            <td><input type="number"></td>
+            <td><input type="text" readonly></td>
         </tr>
         <tr>
             <td>-</td>
-            <td><input type="text" placeholder="Enter data"></td>
-            <td><input type="text" placeholder="Enter data"></td>
+            <td><input type="number"></td>
+            <td><input type="text" readonly></td>
         </tr>
     </tbody>
 </table>
+
+<script>
+function calculate() {
+    // 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
+    const row1Col2 = parseFloat(document.getElementById('row1_col2').value) || 0;
+    const row4Col2 = parseFloat(document.getElementById('row4_col2').value) || 0;
+    const row5Col2 = parseFloat(document.getElementById('row5_col2').value) || 0;
+
+    // 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
+    const result5Col3 = row1Col2 + row4Col2 - row5Col2;
+    document.getElementById('row5_col3').value = result5Col3;
+
+    // 네 번째 줄 - 다섯 번째 줄 계산
+    const result4Col3 = row4Col2 - row5Col2;
+    document.getElementById('row4_col3').value = result4Col3;
+}
+</script>
 
 </body>
 </html>
