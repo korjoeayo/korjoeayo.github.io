@@ -51,7 +51,7 @@
     <tbody>
         <!-- 첫 번째 줄 -->
         <tr>
-            <td>8911</td>
+            <td>891</td>
             <td><input type="number" id="arow1_col2" oninput="calculate()" inputmode="numeric"></td>
             <td><input type="number"></td>
         </tr>
@@ -109,8 +109,8 @@
         </tr>
         <tr>
             <td>893</td>
-            <td><input type="number" id="a892" oninput="calculate()" inputmode="numeric"></td>
-            <td><input type="text" id="b892" readonly></td>
+            <td><input type="number" id="a893" oninput="calculate()" inputmode="numeric"></td>
+            <td><input type="text" id="b893" readonly></td>
         </tr>
         <tr>
             <td>총액</td>
@@ -163,9 +163,6 @@ function calculate() {
 
     const resultall = aresult5Col3 + bresult5Col3 + cresult5Col3;
     document.getElementById('all').value = resultall;
-
-    const resultall1 = result891 + result892 + result893;
-    document.getElementById('all1').value = resultall1;
 	
     // 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
     const a8911 = parseFloat(document.getElementById('a891').value) || 0;
@@ -180,6 +177,9 @@ function calculate() {
 
     const result893 = a8931 - cresult5Col3;
     document.getElementById('b893').value = result893;
+
+    const resultall1 = result891 + result892 + result893;
+    document.getElementById('all1').value = resultall1;
 
 
 }
