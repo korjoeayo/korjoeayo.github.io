@@ -37,7 +37,7 @@
             width: 99%;
             height: 99%;
             border: none;
-            padding: 10px;
+            padding: 5px;
             font-size: 18px;
         }
         input:focus {
@@ -160,6 +160,12 @@ function calculate() {
     // 네 번째 줄 - 다섯 번째 줄 계산
     const cresult4Col3 = crow4Col2 - crow5Col2;
     document.getElementById('crow4_col3').value = cresult4Col3;
+
+    const resultall = aresult5Col3 + bresult5Col3 + cresult5Col3;
+    document.getElementById('all').value = resultall;
+
+    const resultall1 = result891 + result892 + result893;
+    document.getElementById('all1').value = resultall1;
 	
     // 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
     const a8911 = parseFloat(document.getElementById('a891').value) || 0;
@@ -174,12 +180,6 @@ function calculate() {
 
     const result893 = a8931 - cresult5Col3;
     document.getElementById('b893').value = result893;
-
-    const resultall = aresult5Col3 + bresult5Col3 + cresult5Col3;
-    document.getElementById('all').value = resultall;
-
-    const resultall1 = result891 + result892 + result893;
-    document.getElementById('all1').value = resultall1;
 
 
 }
