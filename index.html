@@ -99,7 +99,20 @@
         </tr>
         <tr>
             <td>총액</td>
-            <td colspan="2"><input type="number" id="all"></td>
+            <td><input type="number" id="all"></td>
+            <td><input type="number" id="all1"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="a891"></td>
+            <td><input type="number" id="b891"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="a892"></td>
+            <td><input type="number" id="b892"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="a892"></td>
+            <td><input type="number" id="b892"></td>
         </tr>
     </tbody>
 </table>
@@ -147,6 +160,20 @@ function calculate() {
 
     const resultall = arow1Col2 + brow1Col2 + crow1Col2
     document.getElementById('all').value = resultall;
+
+    const resultall1 = a891 + a892 + a893
+    document.getElementById('all1').value = resultall1;
+
+    const result891 = arow1_col2 - a891
+    document.getElementById('result891').value = b891;
+
+    const result892 = brow1_col2 - a892
+    document.getElementById('result892').value = b892;
+
+    const result893 = crow1_col2 - a893
+    document.getElementById('result893').value = b893;
+
+
 }
 </script>
 
