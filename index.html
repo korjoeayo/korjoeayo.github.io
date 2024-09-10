@@ -53,7 +53,7 @@
         <tr>
             <td>891</td>
             <td><input type="number" id="arow1_col2" oninput="calculate()" inputmode="numeric"></td>
-            <td><input type="number"></td>
+            <td><input type="number" inputmode="numeric"></td>
         </tr>
         <tr>
             <td>+</td>
@@ -69,7 +69,7 @@
         <tr>
             <td>892</td>
             <td><input type="number" id="brow1_col2" oninput="calculate()" inputmode="numeric"></td>
-            <td><input type="number"></td>
+            <td><input type="number" inputmode="numeric"></td>
         </tr>
         <tr>
             <td>+</td>
@@ -85,7 +85,7 @@
         <tr>
             <td>893</td>
             <td><input type="number" id="crow1_col2" oninput="calculate()" inputmode="numeric"></td>
-            <td><input type="number"></td>
+            <td><input type="number" inputmode="numeric"></td>
         </tr>
         <tr>
             <td>+</td>
@@ -186,7 +186,7 @@ function calculate() {
     const resultall1 = result891 + result892 + result893;
     document.getElementById('all1').value = resultall1;
 
-    const resultall2 = resualtall - resultall1;
+    const resultall2 = resultall - resultall1;
     document.getElementById('all2').value = resultall2;
 
 
