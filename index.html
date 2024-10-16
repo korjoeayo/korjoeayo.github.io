@@ -74,7 +74,7 @@
 		<td id="name">-</td>
 		<td id="obj"><input type="number" id="arow5_col2" oninput="calculate()" inputmode="numeric"></td>
 		<td id="name">타점</td>
-		<td id="obj"><input type="number" id="arow6_col2" oninput="calculate()" inputmode="numeric"></td>
+		<td id="obj"><input type="number" inputmode="numeric"></td>
 	</tr>
 	<tr>
 		<td id="name">±</td>
@@ -98,7 +98,7 @@
 		<td id="name">-</td>
 		<td id="obj"><input type="number" id="brow5_col2" oninput="calculate()" inputmode="numeric"></td>
 		<td id="name">타점</td>
-		<td id="obj"><input type="number" id="brow6_col2" oninput="calculate()" inputmode="numeric"></td>
+		<td id="obj"><input type="number" inputmode="numeric"></td>
 	</tr>
 	<tr>
 		<td id="name">±</td>
@@ -122,7 +122,7 @@
 		<td id="name">-</td>
 		<td id="obj"><input type="number" id="crow5_col2" oninput="calculate()" inputmode="numeric"></td>
 		<td id="name">타점</td>
-		<td id="obj"><input type="number" id="brow6_col2" oninput="calculate()" inputmode="numeric"></td>
+		<td id="obj"><input type="number" inputmode="numeric"></td>
 	</tr>
 	<tr>
 		<td id="name">±</td>
@@ -168,7 +168,6 @@
 	const arow1Col2 = parseFloat(document.getElementById('arow1_col2').value) || 0;
 	const arow4Col2 = parseFloat(document.getElementById('arow4_col2').value) || 0;
 	const arow5Col2 = parseFloat(document.getElementById('arow5_col2').value) || 0;
-	const arow6col2 = parseFloat(document.getElementById('arow6_col2').value) || 0;
 	
 	// 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
 	const aresult5Col3 = arow1Col2 + arow4Col2 - arow5Col2;
@@ -182,7 +181,6 @@
 	const brow1Col2 = parseFloat(document.getElementById('brow1_col2').value) || 0;
 	const brow4Col2 = parseFloat(document.getElementById('brow4_col2').value) || 0;
 	const brow5Col2 = parseFloat(document.getElementById('brow5_col2').value) || 0;
-	const brow6col2 = parseFloat(document.getElementById('brow6_col2').value) || 0;
 	
 	// 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
 	const bresult5Col3 = brow1Col2 + brow4Col2 - brow5Col2;
@@ -196,7 +194,6 @@
 	const crow1Col2 = parseFloat(document.getElementById('crow1_col2').value) || 0;
 	const crow4Col2 = parseFloat(document.getElementById('crow4_col2').value) || 0;
 	const crow5Col2 = parseFloat(document.getElementById('crow5_col2').value) || 0;
-	const crow6Col2 = parseFloat(document.getElementById('crow6_col2').value) || 0;
 	
 	// 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
 	const cresult5Col3 = crow1Col2 + crow4Col2 - crow5Col2;
