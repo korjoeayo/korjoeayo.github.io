@@ -81,10 +81,10 @@
 		<td id="obj"><input type="number" inputmode="numeric"></td>
 	</tr>
 	<tr>
-		<td id="name">-</td>
-		<td id="obj"><input type="number" id="arow5_col2" oninput="calculate()" inputmode="numeric"></td>
-		<td id="name">타점</td>
-		<td id="obj"><input type="number" inputmode="numeric"></td>
+	    <td id="name">-</td>
+	    <td id="obj"><input type="number" id="arow5_col2" oninput="calculate()" inputmode="numeric"></td>
+	    <td id="name">타점</td>
+	    <td id="obj"><input type="number" id="arow5_tajem" oninput="calculate()" inputmode="numeric"></td>
 	</tr>
 	<tr>
 		<td id="name">±</td>
@@ -105,10 +105,10 @@
 		<td id="obj"><input type="number" inputmode="numeric"></td>
 	</tr>
 	<tr>
-		<td id="name">-</td>
-		<td id="obj"><input type="number" id="brow5_col2" oninput="calculate()" inputmode="numeric"></td>
-		<td id="name">타점</td>
-		<td id="obj"><input type="number" inputmode="numeric"></td>
+	    <td id="name">-</td>
+	    <td id="obj"><input type="number" id="brow5_col2" oninput="calculate()" inputmode="numeric"></td>
+	    <td id="name">타점</td>
+	    <td id="obj"><input type="number" id="brow5_tajem" oninput="calculate()" inputmode="numeric"></td>
 	</tr>
 	<tr>
 		<td id="name">±</td>
@@ -129,10 +129,10 @@
 		<td id="obj"><input type="number" inputmode="numeric"></td>
 	</tr>
 	<tr>
-		<td id="name">-</td>
-		<td id="obj"><input type="number" id="crow5_col2" oninput="calculate()" inputmode="numeric"></td>
-		<td id="name">타점</td>
-		<td id="obj"><input type="number" inputmode="numeric"></td>
+	    <td id="name">-</td>
+	    <td id="obj"><input type="number" id="crow5_col2" oninput="calculate()" inputmode="numeric"></td>
+	    <td id="name">타점</td>
+	    <td id="obj"><input type="number" id="crow5_tajem" oninput="calculate()" inputmode="numeric"></td>
 	</tr>
 	<tr>
 		<td id="name">±</td>
@@ -171,68 +171,66 @@
 	</tr>
 	</tbody>
 </table>
-
 <script>
 	function calculate() {
-		// 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
+		// A열 데이터 가져오기
 		const arow1Col2 = parseFloat(document.getElementById('arow1_col2').value) || 0;
 		const arow4Col2 = parseFloat(document.getElementById('arow4_col2').value) || 0;
 		const arow5Col2 = parseFloat(document.getElementById('arow5_col2').value) || 0;
-		
-		// 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
-		const aresult5Col3 = arow1Col2 + arow4Col2 - arow5Col2;
+		const arow5Tajem = parseFloat(document.getElementById('arow5_tajem').value) || 0; // 타점 추가
+
+		const aresult5Col3 = arow1Col2 + arow4Col2 - arow5Col2 - arow5Tajem; // 타점 반영
 		document.getElementById('arow5_col3').value = aresult5Col3;
-		
-		// 네 번째 줄 - 다섯 번째 줄 계산
-		const aresult4Col3 = arow4Col2 - arow5Col2;
+
+		const aresult4Col3 = arow4Col2 - arow5Col2 - arow5Tajem; // 타점 반영
 		document.getElementById('arow4_col3').value = aresult4Col3;
-		
-		// 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
+
+		// B열 데이터 가져오기
 		const brow1Col2 = parseFloat(document.getElementById('brow1_col2').value) || 0;
 		const brow4Col2 = parseFloat(document.getElementById('brow4_col2').value) || 0;
 		const brow5Col2 = parseFloat(document.getElementById('brow5_col2').value) || 0;
-		
-		// 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
-		const bresult5Col3 = brow1Col2 + brow4Col2 - brow5Col2;
+		const brow5Tajem = parseFloat(document.getElementById('brow5_tajem').value) || 0; // 타점 추가
+
+		const bresult5Col3 = brow1Col2 + brow4Col2 - brow5Col2 - brow5Tajem; // 타점 반영
 		document.getElementById('brow5_col3').value = bresult5Col3;
-		
-		// 네 번째 줄 - 다섯 번째 줄 계산
-		const bresult4Col3 = brow4Col2 - brow5Col2;
+
+		const bresult4Col3 = brow4Col2 - brow5Col2 - brow5Tajem; // 타점 반영
 		document.getElementById('brow4_col3').value = bresult4Col3;
-		
-		// 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
+
+		// C열 데이터 가져오기
 		const crow1Col2 = parseFloat(document.getElementById('crow1_col2').value) || 0;
 		const crow4Col2 = parseFloat(document.getElementById('crow4_col2').value) || 0;
 		const crow5Col2 = parseFloat(document.getElementById('crow5_col2').value) || 0;
-		
-		// 첫 번째 줄 + 네 번째 줄 - 다섯 번째 줄 계산
-		const cresult5Col3 = crow1Col2 + crow4Col2 - crow5Col2;
+		const crow5Tajem = parseFloat(document.getElementById('crow5_tajem').value) || 0; // 타점 추가
+
+		const cresult5Col3 = crow1Col2 + crow4Col2 - crow5Col2 - crow5Tajem; // 타점 반영
 		document.getElementById('crow5_col3').value = cresult5Col3;
-		
-		// 네 번째 줄 - 다섯 번째 줄 계산
-		const cresult4Col3 = crow4Col2 - crow5Col2;
+
+		const cresult4Col3 = crow4Col2 - crow5Col2 - crow5Tajem; // 타점 반영
 		document.getElementById('crow4_col3').value = cresult4Col3;
-		
+
+		// 총합 계산
 		const resultall = aresult5Col3 + bresult5Col3 + cresult5Col3;
 		document.getElementById('all').value = resultall;
-		
-		// 첫 번째 줄 2번째 칸, 네 번째 줄 2번째 칸, 다섯 번째 줄 2번째 칸 값 가져오기
+
+		// 자점 금액에서 타점 금액 빼기
 		const a8911 = parseFloat(document.getElementById('a891').value) || 0;
 		const a8921 = parseFloat(document.getElementById('a892').value) || 0;
 		const a8931 = parseFloat(document.getElementById('a893').value) || 0;
-		
+
 		const result891 = a8911 - aresult5Col3;
 		document.getElementById('b891').value = result891;
-		
+
 		const result892 = a8921 - bresult5Col3;
 		document.getElementById('b892').value = result892;
-		
+
 		const result893 = a8931 - cresult5Col3;
 		document.getElementById('b893').value = result893;
-		
+
+		// 최종 결과 계산
 		const resultall1 = result891 + result892 + result893;
 		document.getElementById('all1').value = resultall1;
-		
+
 		const resultall2 = resultall + resultall1;
 		document.getElementById('all2').value = resultall2;
 	}
