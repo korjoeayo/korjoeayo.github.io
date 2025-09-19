@@ -233,7 +233,32 @@
 
 		const resultall2 = resultall + resultall1;
 		document.getElementById('all2').value = resultall2;
+		saveData();
 	}
+
+	function saveData() {
+		const inputs = document.querySelectorAll('input[type="number"]');
+		inputs.forEach(input => {
+			if (input.id) {
+				localStorage.setItem(input.id, input.value);
+			}
+		});
+	}
+
+	function loadData() {
+		const inputs = document.querySelectorAll('input[type="number"]');
+		inputs.forEach(input => {
+			if (input.id) {
+				const savedValue = localStorage.getItem(input.id);
+				if (savedValue !== null) {
+					input.value = savedValue;
+				}
+			}
+		});
+		calculate();
+	}
+
+	window.onload = loadData;
 </script>
 </body>
 </html>
