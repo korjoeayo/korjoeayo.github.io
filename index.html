@@ -62,6 +62,12 @@
 			background-color: #007BFF; /* 배경색 */
 			border: 1px solid #007BFF; /* 테두리 색 */
 		}
+		button {
+			width: 99%;
+			height: 99%;
+			font-size: 16px;
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
@@ -167,7 +173,8 @@
 	</tr>
 	<tr>
 		<td id="name">결과</td>
-		<td id="obj" colspan='3'><input type="number" id="all2" readonly></td>
+		<td id="obj" colspan="2"><input type="number" id="all2" readonly></td>
+		<td><button onclick="location.reload()">새로고침</button></td>
 	</tr>
 	</tbody>
 </table>
@@ -176,7 +183,7 @@
 		// A열 데이터 가져오기
 		const arow1Col2 = parseFloat(document.getElementById('arow1_col2').value) || 0;
 		const arow4Col2 = parseFloat(document.getElementById('arow4_col2').value) || 0;
-		const arow5Col2 = parseFloat(document.getElementById('arow5_col2').value) || 0;
+		const arow5Col2 = parseFloat(document.getElementById('arow5_col2').value) ||.0;
 		const arow5Tajem = parseFloat(document.getElementById('arow5_tajem').value) || 0; // 타점 추가
 
 		const aresult5Col3 = arow1Col2 + arow4Col2 - arow5Col2 - arow5Tajem; // 타점 반영
@@ -233,7 +240,32 @@
 
 		const resultall2 = resultall + resultall1;
 		document.getElementById('all2').value = resultall2;
+		saveData();
 	}
+
+	function saveData() {
+		const inputs = document.querySelectorAll('input[type="number"]');
+		inputs.forEach(input => {
+			if (input.id) {
+				localStorage.setItem(input.id, input.value);
+			}
+		});
+	}
+
+	function loadData() {
+		const inputs = document.querySelectorAll('input[type="number"]');
+		inputs.forEach(input => {
+			if (input.id) {
+				const savedValue = localStorage.getItem(input.id);
+				if (savedValue !== null) {
+					input.value = savedValue;
+				}
+			}
+		});
+		calculate();
+	}
+
+	window.onload = loadData;
 </script>
 </body>
 </html>
