@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<link rel="manifest" href="/manifest.json">
+	<!-- 홈 화면 아이콘 -->
+	<link rel="apple-touch-icon" href="/icon-192x192.png">
+	<!-- 상태 바 색상 설정 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<!-- 앱 모드 활성화 -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="시재계산기">
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>시재계산기</title>
+	<style>
+		html, body {
+			height:100%;
+			margin:0;
+			overscroll-behavior: none;
+			background-color: #ffffff;
+		table {
+			width: 100vw;
+			height: 100vh;
+			table-layout: fixed;
+			border-collapse: collapse;
+		}
+		th, td {
+			border: 1px solid black;
+			text-align: center;
+			padding: 5px;
+			font-size: 15px;
+		}
+		#name {
+			width: 15%;
+		}
+		#obj {
+			width: 35%;
+		}
+		input {
+			width: 99%;
+			height: 99%;
+			border: 1px;
+			padding: 0px;
+			font-size: 18px;
+		}
+		input:focus {
+			outline: none;
+		}
+		/* 체크박스 스타일링 */
+		.custom-checkbox {
+			width: 20px; /* 원하는 너비 */
+			height: 20px; /* 원하는 높이 */
+			appearance: none; /* 기본 스타일 제거 */
+			border: 1px solid #000; /* 테두리 */
+			border-radius: 4px; /* 모서리 둥글게 */
+			outline: none; /* 포커스 아웃라인 제거 */
+			cursor: pointer; /* 커서 변경 */
+		}
+		/* 체크박스 선택 시 스타일 */
+		.custom-checkbox:checked {
+			background-color: #007BFF; /* 배경색 */
+			border: 1px solid #007BFF; /* 테두리 색 */
+		}
+	</style>
+</head>
+<body>
+<table>
+<tbody>
+	<!-- 첫 번째 줄 -->
+	<tr>
+		<td id="name">891</td>
+		<td id="obj"><input type="number" id="arow1_col2" oninput="calculate()" inputmode="numeric"></td>
+		<td id="name"><input type="checkbox" class="custom-checkbox"></td>
+		<td id="obj"><input type="number" inputmode="numeric"></td>
+	</tr>
+	<tr>
+		<td id="name">+</td>
+		<td id="obj"><input type="number" id="arow4_col2" oninput="calculate()" inputmode="numeric"></td>
+		<td id="name">자점</td>
+		<td id="obj"><input type="number" inputmode="numeric"></td>
+	</tr>
+	<tr>
+	    <td id="name">-</td>
+	    <td id="obj"><input type="number" id="arow5_col2" oninput="calculate()" inputmode="numeric"></td>
+	    <td id="name">타점</td>
+	    <td id="obj"><input type="number" id="arow5_tajem" oninput="calculate()" inputmode="numeric"></td>
+	</tr>
+	<tr>
+		<td id="name">±</td>
+		<td id="obj"><input type="text" id="arow4_col3" readonly></td>
+		<td id="name">총액</td>
+		<td id="obj"><input type="text" id="arow5_col3" readonly></td>
+	</tr>
+		<!-- 두 번째 줄 (계속 진행) -->
+		<td id="name">892</td>
+		<td id="obj"><input type="number" id="brow1_col2" oninput="calculate()" inputmode="numeric"></td>
+		<td id="name"><input type="checkbox" class="custom-checkbox"></td>
+		<td id="obj"><input type="number" inputmode="numeric"></td>
+	</tr>
+	<tr>
+		<td id="name">+</td>
+		<td id="obj"><input type="number" id="brow4_col2" oninput="calculate()" inputmode="numeric"></td>
+		<td id="name">자점</td>
+		<td id="obj"><input type="number" inputmode="numeric"></td>
+	</tr>
+	<tr>
+	    <td id="name">-</td>
+	    <td id="obj"><input type="number" id="brow5_col2" oninput="calculate()" inputmode="numeric"></td>
+	    <td id="name">타점</td>
+	    <td id="obj"><input type="number" id="brow5_tajem" oninput="calculate()" inputmode="numeric"></td>
+	</tr>
+	<tr>
+		<td id="name">±</td>
+		<td id="obj"><input type="text" id="brow4_col3" readonly></td>
+		<td id="name">총액</td>
+		<td id="obj"><input type="text" id="brow5_col3" readonly></td>
+	</tr>
+		<!-- 세 번째 줄 (계속 진행) -->
+		<td id="name">893</td>
+		<td id="obj"><input type="number" id="crow1_col2" oninput="calculate()" inputmode="numeric"></td>
+		<td id="name"><input type="checkbox" class="custom-checkbox"></td>
+		<td id="obj"><input type="number" inputmode="numeric"></td>
+	</tr>
+	<tr>
+		<td id="name">+</td>
+		<td id="obj"><input type="number" id="crow4_col2" oninput="calculate()" inputmode="numeric"></td>
+		<td id="name">자점</td>
+		<td id="obj"><input type="number" inputmode="numeric"></td>
+	</tr>
+	<tr>
+	    <td id="name">-</td>
+	    <td id="obj"><input type="number" id="crow5_col2" oninput="calculate()" inputmode="numeric"></td>
+	    <td id="name">타점</td>
+	    <td id="obj"><input type="number" id="crow5_tajem" oninput="calculate()" inputmode="numeric"></td>
+	</tr>
+	<tr>
+		<td id="name">±</td>
+		<td id="obj"><input type="text" id="crow4_col3" readonly></td>
+		<td id="name">총액</td>
+		<td id="obj"><input type="text" id="crow5_col3" readonly></td>
+	</tr>
+	<!-- 네 번째 줄 (계속 진행) -->
+	<tr>
+		<td id="name">891</td>
+		<td id="obj"><input type="number" id="a891" oninput="calculate()" inputmode="numeric"></td>
+		<td id="name">±</td>
+		<td id="obj"><input type="text" id="b891" readonly></td>
+	</tr>
+	<tr>
+		<td id="name">892</td>
+		<td id="obj"><input type="number" id="a892" oninput="calculate()" inputmode="numeric"></td>
+		<td id="name">±</td>
+		<td id="obj"><input type="text" id="b892" readonly></td>
+	</tr>
+	<tr>
+		<td id="name">893</td>
+		<td id="obj"><input type="number" id="a893" oninput="calculate()" inputmode="numeric"></td>
+		<td id="name">±</td>
+		<td id="obj"><input type="text" id="b893" readonly></td>
+	</tr>
+	<tr>
+		<td id="name">총액</td>
+		<td id="obj"><input type="number" id="all" readonly></td>
+		<td id="name">±</td>
+		<td id="obj"><input type="number" id="all1" readonly></td>
+	</tr>
+	<tr>
+		<td id="name">결과</td>
+		<td id="obj" colspan='3'><input type="number" id="all2" readonly></td>
+	</tr>
+	</tbody>
+</table>
+<script>
+	function calculate() {
+		// A열 데이터 가져오기
+		const arow1Col2 = parseFloat(document.getElementById('arow1_col2').value) || 0;
+		const arow4Col2 = parseFloat(document.getElementById('arow4_col2').value) || 0;
+		const arow5Col2 = parseFloat(document.getElementById('arow5_col2').value) || 0;
+		const arow5Tajem = parseFloat(document.getElementById('arow5_tajem').value) || 0; // 타점 추가
+
+		const aresult5Col3 = arow1Col2 + arow4Col2 - arow5Col2 - arow5Tajem; // 타점 반영
+		document.getElementById('arow5_col3').value = aresult5Col3;
+
+		const aresult4Col3 = arow4Col2 - arow5Col2 - arow5Tajem; // 타점 반영
+		document.getElementById('arow4_col3').value = aresult4Col3;
+
+		// B열 데이터 가져오기
+		const brow1Col2 = parseFloat(document.getElementById('brow1_col2').value) || 0;
+		const brow4Col2 = parseFloat(document.getElementById('brow4_col2').value) || 0;
+		const brow5Col2 = parseFloat(document.getElementById('brow5_col2').value) || 0;
+		const brow5Tajem = parseFloat(document.getElementById('brow5_tajem').value) || 0; // 타점 추가
+
+		const bresult5Col3 = brow1Col2 + brow4Col2 - brow5Col2 - brow5Tajem; // 타점 반영
+		document.getElementById('brow5_col3').value = bresult5Col3;
+
+		const bresult4Col3 = brow4Col2 - brow5Col2 - brow5Tajem; // 타점 반영
+		document.getElementById('brow4_col3').value = bresult4Col3;
+
+		// C열 데이터 가져오기
+		const crow1Col2 = parseFloat(document.getElementById('crow1_col2').value) || 0;
+		const crow4Col2 = parseFloat(document.getElementById('crow4_col2').value) || 0;
+		const crow5Col2 = parseFloat(document.getElementById('crow5_col2').value) || 0;
+		const crow5Tajem = parseFloat(document.getElementById('crow5_tajem').value) || 0; // 타점 추가
+
+		const cresult5Col3 = crow1Col2 + crow4Col2 - crow5Col2 - crow5Tajem; // 타점 반영
+		document.getElementById('crow5_col3').value = cresult5Col3;
+
+		const cresult4Col3 = crow4Col2 - crow5Col2 - crow5Tajem; // 타점 반영
+		document.getElementById('crow4_col3').value = cresult4Col3;
+
+		// 총합 계산
+		const resultall = aresult5Col3 + bresult5Col3 + cresult5Col3;
+		document.getElementById('all').value = resultall;
+
+		// 자점 금액에서 타점 금액 빼기
+		const a8911 = parseFloat(document.getElementById('a891').value) || 0;
+		const a8921 = parseFloat(document.getElementById('a892').value) || 0;
+		const a8931 = parseFloat(document.getElementById('a893').value) || 0;
+
+		const result891 = a8911 - aresult5Col3;
+		document.getElementById('b891').value = result891;
+
+		const result892 = a8921 - bresult5Col3;
+		document.getElementById('b892').value = result892;
+
+		const result893 = a8931 - cresult5Col3;
+		document.getElementById('b893').value = result893;
+
+		// 최종 결과 계산
+		const resultall1 = result891 + result892 + result893;
+		document.getElementById('all1').value = resultall1;
+
+		const resultall2 = resultall + resultall1;
+		document.getElementById('all2').value = resultall2;
+	}
+</script>
+</body>
+</html>
