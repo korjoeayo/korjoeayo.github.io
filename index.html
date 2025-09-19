@@ -174,7 +174,7 @@
 	<tr>
 		<td id="name">결과</td>
 		<td id="obj" colspan="2"><input type="number" id="all2" readonly></td>
-		<td><button onclick="location.reload()">새로고침</button></td>
+		<td><button onclick="resetData()">초기화</button></td>
 	</tr>
 	</tbody>
 </table>
@@ -263,6 +263,11 @@
 			}
 		});
 		calculate();
+	}
+
+	function resetData() {
+		localStorage.clear();
+		location.reload();
 	}
 
 	window.onload = loadData;
